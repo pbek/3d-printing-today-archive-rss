@@ -58,14 +58,12 @@ for ($i = 328; $i >= 0; $i--) {
         <item>
             <title><?php print $i; ?>_3DPrinting_Today</title>
             <itunes:title>3D Printing Today</itunes:title>
-            <pubDate>Wed, 15 Apr 2020 13:30:00 +0000</pubDate>
             <guid isPermaLink="false"><![CDATA[<?php print $uuid; ?>]]></guid>
             <link><![CDATA[https://threedprintingtoday.libsyn.com/<?php print $padNum; ?>_3dprinting_today]]></link>
             <itunes:image href="https://ssl-static.libsyn.com/p/assets/1/e/7/b/1e7b23d3ce8d62e7/3Dprintingtodaylogo.jpg" />
             <description><![CDATA[<p>S3D and the TC revisit, Reviewing our Standards for Quality, Revisit Mesh Compensation</p>]]></description>
             <content:encoded><![CDATA[<p>S3D and the TC revisit, Reviewing our Standards for Quality, Revisit Mesh Compensation</p>]]></content:encoded>
             <enclosure length="54060097" type="audio/mpeg" url="https://traffic.libsyn.com/secure/threedprintingtoday/<?php print $padNum; ?>_3DPT.mp3?dest-id=182248" />
-            <itunes:duration>50:13</itunes:duration>
             <itunes:explicit>clean</itunes:explicit>
             <itunes:keywords>3dprinting,3dprinter,3dprint</itunes:keywords>
             <itunes:subtitle><![CDATA[Episode <?php print $padNum; ?>]]></itunes:subtitle>
