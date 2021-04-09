@@ -36,29 +36,14 @@
 
 <?php
 
-function guidv4($data = null) {
-    // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
-    $data = $data ?? random_bytes(16);
-    assert(strlen($data) == 16);
-
-    // Set version to 0100
-    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
-    // Set bits 6-7 to 10
-    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
-
-    // Output the 36 character UUID.
-    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
-}
-
-for ($i = 328; $i >= 0; $i--) {
+for ($i = 320; $i >= 1; $i--) {
     $padNum = str_pad($i, 3, "0", STR_PAD_LEFT);
-	$uuid = guidv4();
 
     ?>
         <item>
             <title><?php print $i; ?>_3DPrinting_Today</title>
             <itunes:title>3D Printing Today</itunes:title>
-            <guid isPermaLink="false"><![CDATA[<?php print $uuid; ?>]]></guid>
+            <guid isPermaLink="false"><![CDATA[27a63a53-bdf3-4245-9678-4c23675e2983-<?php print $padNum; ?>]]></guid>
             <link><![CDATA[https://threedprintingtoday.libsyn.com/<?php print $padNum; ?>_3dprinting_today]]></link>
             <itunes:image href="https://ssl-static.libsyn.com/p/assets/1/e/7/b/1e7b23d3ce8d62e7/3Dprintingtodaylogo.jpg" />
             <description><![CDATA[<p>S3D and the TC revisit, Reviewing our Standards for Quality, Revisit Mesh Compensation</p>]]></description>
