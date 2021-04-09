@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cc="http://web.resource.org/cc/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<channel>
-		<atom:link href="https://threedprintingtoday.libsyn.com/rss" rel="self" type="application/rss+xml"/>
+		<atom:link href="https://raw.githubusercontent.com/pbek/3d-printing-today-archive-rss/main/archive.xml" rel="self" type="application/rss+xml"/>
 		<title>3D Printing Today Archive</title>
 		<pubDate><?php print date("r"); ?></pubDate>
 		<lastBuildDate><?php print date("r"); ?></lastBuildDate>
@@ -36,15 +36,30 @@
 
 <?php
 
+function guidv4($data = null) {
+    // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
+    $data = $data ?? random_bytes(16);
+    assert(strlen($data) == 16);
+
+    // Set version to 0100
+    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+    // Set bits 6-7 to 10
+    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+
+    // Output the 36 character UUID.
+    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+}
+
 for ($i = 328; $i >= 0; $i--) {
     $padNum = str_pad($i, 3, "0", STR_PAD_LEFT);
+	$uuid = guidv4();
 
     ?>
         <item>
             <title><?php print $i; ?>_3DPrinting_Today</title>
             <itunes:title>3D Printing Today</itunes:title>
             <pubDate>Wed, 15 Apr 2020 13:30:00 +0000</pubDate>
-            <guid isPermaLink="false"><![CDATA[3495a1b9-7707-427a-b91d-e69e1c94dbde]]></guid>
+            <guid isPermaLink="false"><![CDATA[<?php print $uuid; ?>]]></guid>
             <link><![CDATA[https://threedprintingtoday.libsyn.com/<?php print $padNum; ?>_3dprinting_today]]></link>
             <itunes:image href="https://ssl-static.libsyn.com/p/assets/1/e/7/b/1e7b23d3ce8d62e7/3Dprintingtodaylogo.jpg" />
             <description><![CDATA[<p>S3D and the TC revisit, Reviewing our Standards for Quality, Revisit Mesh Compensation</p>]]></description>
