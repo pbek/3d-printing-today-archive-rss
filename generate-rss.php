@@ -63,7 +63,7 @@ for ($i = 328; $i >= 0; $i--) {
             <itunes:image href="https://ssl-static.libsyn.com/p/assets/1/e/7/b/1e7b23d3ce8d62e7/3Dprintingtodaylogo.jpg" />
             <description><![CDATA[<p>S3D and the TC revisit, Reviewing our Standards for Quality, Revisit Mesh Compensation</p>]]></description>
             <content:encoded><![CDATA[<p>S3D and the TC revisit, Reviewing our Standards for Quality, Revisit Mesh Compensation</p>]]></content:encoded>
-            <enclosure length="54060097" type="audio/mpeg" url="https://traffic.libsyn.com/secure/threedprintingtoday/<?php print $padNum; ?>_3DPT.mp3?dest-id=182248" />
+            <enclosure type="audio/mpeg" url="https://traffic.libsyn.com/secure/threedprintingtoday/<?php print $padNum; ?>_3DPT.mp3?dest-id=182248" />
             <itunes:explicit>clean</itunes:explicit>
             <itunes:keywords>3dprinting,3dprinter,3dprint</itunes:keywords>
             <itunes:subtitle><![CDATA[Episode <?php print $padNum; ?>]]></itunes:subtitle>
